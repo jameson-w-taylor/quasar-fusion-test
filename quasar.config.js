@@ -24,6 +24,11 @@ let proxy = {};
 
 export default defineConfig((/* ctx */) => {
   return {
+    eslint: {
+      warnings: true,
+      errors: true,
+    },
+
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
 
@@ -52,11 +57,14 @@ export default defineConfig((/* ctx */) => {
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#build
     build: {
       target: {
-        browser: ['es2022', 'firefox115', 'chrome115', 'safari14'],
-        node: 'node20',
+        browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
       },
 
       vueRouterMode: 'hash', // available values: 'hash', 'history'
+      publicPath: '/ui/',
+      vitePlugins: [
+        ['@intlify/unplugin-vue-i18n/vite'],
+      ],
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
