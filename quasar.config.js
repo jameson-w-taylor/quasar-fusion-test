@@ -3,6 +3,25 @@
 
 import { defineConfig } from '#q-app/wrappers'
 
+let host = '0.0.0.0';
+if (process.env.HOST) {
+  host = process.env.HOST;
+}
+
+const port = process.env.PORT || 8189;
+let hmr = {
+  host: 'localhost',
+  port,
+  path: '/',
+};
+
+if (process.env.HMR && process.env.HMR === 'default') {
+  hmr = {
+    protocol: 'wss'
+  };
+}
+let proxy = {};
+
 export default defineConfig((/* ctx */) => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
@@ -72,8 +91,11 @@ export default defineConfig((/* ctx */) => {
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#devserver
     devServer: {
-      // https: true,
-      open: true, // opens browser window automatically
+      port,
+      strictPort: false,
+      host: '0.0.0.0',
+      hmr,
+      proxy,
     },
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#framework
@@ -138,6 +160,10 @@ export default defineConfig((/* ctx */) => {
     // https://v2.quasar.dev/quasar-cli-vite/developing-pwa/configuring-pwa
     pwa: {
       workboxMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
+      injectPwaMetaTags: true,
+      swFilename: 'sw.js',
+      manifestFilename: 'manifest.json',
+      useCredentialsForManifestTag: false,
       // swFilename: 'sw.js',
       // manifestFilename: 'manifest.json',
       // extendManifestJson (json) {},
