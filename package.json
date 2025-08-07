@@ -9,7 +9,7 @@
     "lint": "eslint -c ./eslint.config.js \"./src*/**/*.{js,cjs,mjs,vue}\"",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "MOCK_API=proxy concurrently \"npm run server:dev\"",
+    "dev": "MOCK_API=proxy concurrently \"npm run client:dev\"",
     "client:dev": "quasar dev",
     "server:dev": "nodemon server.mjs",
     "build": "quasar build",
