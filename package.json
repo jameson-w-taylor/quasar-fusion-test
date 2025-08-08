@@ -2,6 +2,7 @@
   "name": "quasar-fusion-test",
   "version": "0.0.1",
   "description": "A Quasar Project",
+  "type": "module",
   "productName": "Quasar App",
   "author": "Jameson Taylor <jameson@builder.io>",
   "private": true,
@@ -22,7 +23,7 @@
     "globals": "^15.12.0",
     "vite-plugin-checker": "^0.9.0",
     "prettier": "^3.3.3",
-    "@quasar/app-vite": "1.11.0",
+    "@quasar/app-vite": "2.0.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.14"
   },
