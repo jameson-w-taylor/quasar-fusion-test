@@ -1,9 +1,11 @@
 // Configuration for your app
 // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file
 
-import { defineConfig } from '#q-app/wrappers'
+//import { defineConfig } from '#q-app/wrappers'
+const { configure } = require('quasar/wrappers');
 
-export default defineConfig((/* ctx */) => {
+//export default defineConfig((/* ctx */) => {
+module.exports = configure(() => {
   return {
     // https://v2.quasar.dev/quasar-cli-vite/prefetch-feature
     // preFetch: true,
@@ -60,10 +62,10 @@ export default defineConfig((/* ctx */) => {
         [
           'vite-plugin-checker',
           {
-            eslint: {
-              lintCommand: 'eslint -c ./eslint.config.js "./src*/**/*.{js,mjs,cjs,vue}"',
-              useFlatConfig: true,
-            },
+            // eslint: {
+            //   lintCommand: 'eslint -c ./eslint.config.js "./src*/**/*.{js,mjs,cjs,vue}"',
+            //   useFlatConfig: true,
+            // },
           },
           { server: false },
         ],
